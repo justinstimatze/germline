@@ -1,0 +1,94 @@
+{
+  "schema": "germline.corpus.manifest/0",
+  "profile": {
+    "estimated_at": "2026-09-03",
+    "window_days": 90,
+    "recency_half_life_days": 30
+  },
+  "inputs": [
+    {
+      "id": "in-000001",
+      "recorded_at": "2026-09-03T06:03:13Z",
+      "sha256": "4a475846b4ad05fdad6707fe564a2da48b9a11a28b48d98e0dc379ecd1e16081",
+      "level": 3,
+      "weight": 0.3,
+      "status": "active",
+      "outputs": {
+        "0.2.0": "sha256:e8626feebfa7320f458afe3360cd0b212f8b509bdb1ef3c618cf438b3cc429ff"
+      }
+    },
+    {
+      "id": "in-000002",
+      "recorded_at": "2026-09-03T06:03:13Z",
+      "sha256": "8fc7c9b09f5bfa3e24a336d167daa8d6574d883c5d20b340ecaa997915ba0f9d",
+      "level": 3,
+      "weight": 0.25,
+      "status": "active",
+      "outputs": {
+        "0.2.0": "sha256:a67c04aded325ad278a418d0bdd1d78a72324fa91e6b76e2bd18641cbf5abb1d"
+      }
+    },
+    {
+      "id": "in-000003",
+      "recorded_at": "2026-09-03T06:03:13Z",
+      "sha256": "72fd7d35dfd17c98a988ae92496711379f55909487dcd91ab2315faa04b399c9",
+      "level": 3,
+      "weight": 0.2,
+      "status": "active",
+      "outputs": {
+        "0.2.0": "sha256:28e73cbba7147b78a3fdb1a26a9d8acd15216059df2cc13825ae6c933f527f36"
+      }
+    },
+    {
+      "id": "in-000004",
+      "recorded_at": "2026-09-03T06:03:13Z",
+      "sha256": "a8b2d2340d061598917ac07e62ad3e1d0c5fedfe08e41bcab99f712d3424b2f4",
+      "level": 3,
+      "weight": 0.1,
+      "status": "active",
+      "outputs": {
+        "0.2.0": "sha256:2c4709be4bb4d6769bfa8857535085e91774e96a5fb21a13156c6e08ebdd1f7a"
+      }
+    },
+    {
+      "id": "in-000005",
+      "recorded_at": "2026-09-03T06:03:13Z",
+      "sha256": "a1b6d9042df44e80ce1d919830368a2a194cf707534dea5d306bd09cab050c68",
+      "level": 3,
+      "weight": 0.1,
+      "status": "active",
+      "outputs": {
+        "0.2.0": "sha256:7664a0a58313ca248d877fa142b255ad1c97e5d85b2ec815733554e2c1e84846"
+      }
+    },
+    {
+      "id": "in-000006",
+      "recorded_at": "2026-09-03T06:03:13Z",
+      "sha256": "c72ff1f5f9906a490c7095f3ecec858dbed65a07189b2b25d877d863abe15b78",
+      "level": 3,
+      "weight": 0.05,
+      "status": "active",
+      "outputs": {
+        "0.2.0": "sha256:78deb463528e6796270c97b4b0e7ba348b2702b78ed1ea69e2e5045120f36269"
+      }
+    }
+  ],
+  "accepted_diffs": [
+    {
+      "from": "0.1.0",
+      "to": "0.2.0",
+      "input": "in-000002",
+      "closed_as": "boundary",
+      "decision": "QueryPlusDecodingIsNotPromised",
+      "reason": "the form and RFC readings of + both ship; neither is a defect"
+    },
+    {
+      "from": "0.1.0",
+      "to": "0.2.0",
+      "input": "in-000005",
+      "closed_as": "boundary",
+      "decision": "QueryPlusDecodingIsNotPromised",
+      "reason": "the form and RFC readings of + both ship; neither is a defect"
+    }
+  ]
+}

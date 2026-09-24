@@ -1,0 +1,9 @@
+{
+  "schema": "germline.corpus.manifest/0",
+  "profile": {
+    "estimated_at": "",
+    "window_days": 90,
+    "recency_half_life_days": 30
+  },
+  "inputs": []
+}

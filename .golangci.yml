@@ -1,0 +1,112 @@
+# golangci-lint v2, tightened from a common base: the staticcheck ST (style)
+# family stays on, and the formatters run gofumpt and goimports rather than
+# gofmt alone.
+# `make lint` runs this; CI runs it through golangci/golangci-lint-action.
+version: "2"
+
+run:
+  timeout: 5m
+  tests: true
+
+linters:
+  default: none
+  enable:
+    - bodyclose
+    - copyloopvar
+    - errcheck
+    - errname
+    - errorlint
+    - exhaustive
+    - gocritic
+    - gosec
+    - govet
+    - ineffassign
+    - intrange
+    - misspell
+    - nilerr
+    - noctx
+    - nolintlint
+    - perfsprint
+    - prealloc
+    - revive
+    - staticcheck
+    - thelper
+    - tparallel
+    - unconvert
+    - unparam
+    - unused
+    - usestdlibvars
+    - wastedassign
+  settings:
+    errcheck:
+      check-type-assertions: true
+      check-blank: true
+      exclude-functions:
+        # Best-effort writes to a terminal; the process is exiting anyway.
+        - fmt.Fprintln
+        - fmt.Fprintf
+        - fmt.Fprint
+    govet:
+      enable-all: true
+      # fieldalignment is off, and only fieldalignment. The types in pkg/ are
+      # documents before they are structs: boundary.Entry's field order is the
+      # order of the rendered markdown line, corpus.Input's is the order of the
+      # JSON, and each field carries a doc comment that reads in sequence.
+      # Reordering them for a few bytes of padding, on structs that exist in
+      # the dozens rather than the millions, trades the readable shape of an
+      # artifact for nothing measurable. Every other analyzer stays on.
+      disable:
+        - fieldalignment
+      settings:
+        shadow:
+          strict: true
+    staticcheck:
+      checks:
+        - all
+    revive:
+      severity: warning
+      rules:
+        - name: exported
+        - name: package-comments
+        - name: unexported-return
+        - name: error-strings
+        - name: error-naming
+        - name: var-naming
+        - name: receiver-naming
+        - name: increment-decrement
+        - name: indent-error-flow
+        - name: superfluous-else
+        - name: unused-parameter
+        - name: unreachable-code
+        - name: early-return
+        - name: defer
+        - name: import-shadowing
+    gocritic:
+      enabled-tags:
+        - diagnostic
+        - style
+        - performance
+      disabled-checks:
+        # hugeParam fires on every spec.Machine value; those are built once.
+        - hugeParam
+    nolintlint:
+      require-explanation: true
+      require-specific: true
+    misspell:
+      locale: US
+  exclusions:
+    rules:
+      - path: _test\.go
+        linters:
+          - gosec
+      - path: _test\.go
+        text: "unused-parameter"
+
+formatters:
+  enable:
+    - gofumpt
+    - goimports
+  settings:
+    goimports:
+      local-prefixes:
+        - github.com/justinstimatze/germline

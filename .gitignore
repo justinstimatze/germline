@@ -1,0 +1,20 @@
+/bin/
+/dist/
+*.test
+*.out
+.DS_Store
+# recorded corpus data lives outside the repo; only the manifest is tracked
+/corpus/inputs/*
+!/corpus/inputs/.gitkeep
+
+# plancheck writes this when debugging is on; never part of the tree
+.plancheck-debug.json
+
+# the replay gate's wiring names an absolute path on the machine that ran
+# `make replay-gate`; the target is the tracked form, not the file it writes
+/.claude/settings.local.json
+
+# private working notes and local agent pointers; never part of the public tree
+/notes/
+/CLAUDE.local.md
+/.mcp.json

@@ -1,0 +1,48 @@
+{
+  "schema": "germline.corpus.manifest/0",
+  "profile": {
+    "estimated_at": "2026-09-02",
+    "window_days": 90,
+    "recency_half_life_days": 30
+  },
+  "inputs": [
+    {
+      "id": "in-000001",
+      "recorded_at": "2026-09-02T21:04:00Z",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "level": 3,
+      "weight": 0.0042,
+      "status": "active",
+      "outputs": {
+        "0.1.0": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+        "0.2.0": "sha256:2222222222222222222222222222222222222222222222222222222222222222"
+      }
+    },
+    {
+      "id": "in-000002",
+      "recorded_at": "2026-09-02T21:05:00Z",
+      "sha256": "3333333333333333333333333333333333333333333333333333333333333333",
+      "level": 3,
+      "weight": 0.0001,
+      "status": "retired",
+      "retired": {
+        "at_version": "0.2.0",
+        "reason": "feature removed; boundary entry added",
+        "decision": "GermlineExampleDecisionVarName"
+      },
+      "outputs": {
+        "0.1.0": "sha256:4444444444444444444444444444444444444444444444444444444444444444"
+      }
+    }
+  ],
+  "accepted_diffs": [
+    {
+      "from": "0.1.0",
+      "to": "0.2.0",
+      "input": "in-000001",
+      "closed_as": "law",
+      "decision": "GermlineExampleDecisionVarName",
+      "reason": "law was missing the empty-buffer condition"
+    }
+  ]
+}
